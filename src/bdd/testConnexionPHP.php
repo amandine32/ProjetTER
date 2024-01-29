@@ -1,7 +1,7 @@
 <?php
 try {
 
-    $pdo = new PDO('sqlite:C:/Users/amand/OneDrive/Bureau/ProjetTER/scrip.sqlite');
+    $pdo = new PDO('sqlite:C:/Users/amand/OneDrive/Bureau/ProjetTER/src/bdd/scrip.sqlite');
     echo "Connexion réussie à la base de données SQLite.";
 
     // Testez en effectuant une requête simple (par exemple, lister les tables)
