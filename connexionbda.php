@@ -21,10 +21,18 @@ try {
                     DATEDECREATION TEXT NOT NULL,
                     TITRE TEXT NOT NULL,
                     PSEUDO TEXT NOT NULL,
-                    IDUSER INTEGER,
-                    LISTEDESUSERS TEXT,
+                    IDUSER INTEGER
                     FOREIGN KEY (IDUSER) REFERENCES USER(IDUSER)
                 )");
+
+    $pdo->exec("CREATE TABLE Partage (
+                        IDPARTAGE INTEGER PRIMARY KEY,
+                        IDUSER INTEGER,
+                        IDPOSTIT INTEGER,
+                        FOREIGN KEY (IDUSER) REFERENCES USER(IDUSER),
+                        FOREIGN KEY (IDPOSTIT) REFERENCES POSTIT(IDPOSTIT)
+                    )");
+
 
 
     $stmt = $pdo->prepare("INSERT INTO USER (PSEUDO, NOM, PRENOM, DATEDENAISSANCE, MAIL, MDP, PHOTO) VALUES (?, ?, ?, ?, ?, ?, ?)");
