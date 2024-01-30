@@ -1,12 +1,12 @@
 <?php
 try {
     // Création ou ouverture de la base de données SQLite
-    $pdo = new PDO('sqlite:C:/Users/amand/OneDrive/Bureau/ProjetTER/src/bdd/scrip.sqlite');
+    $pdo = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Création des tables si elles n'existent pas déjà
     $pdo->exec("CREATE TABLE IF NOT EXISTS USER (
-                    IDUSER INTEGER PRIMARY KEY,
+                    IDUSER INTEGER PRIMARY KEY AUTOINCREMENT,
                     PSEUDO TEXT NOT NULL,
                     NOM TEXT NOT NULL,
                     PRENOM TEXT NOT NULL,
@@ -17,7 +17,7 @@ try {
                 )");
 
     $pdo->exec("CREATE TABLE IF NOT EXISTS POSTIT (
-                    IDPOSTIT INTEGER PRIMARY KEY,
+                    IDPOSTIT INTEGER PRIMARY KEY AUTOINCREMENT,
                     DATEDECREATION TEXT NOT NULL,
                     TITRE TEXT NOT NULL,
                     PSEUDO TEXT NOT NULL,
@@ -26,7 +26,7 @@ try {
                 )");
 
     $pdo->exec("CREATE TABLE Partage (
-                        IDPARTAGE INTEGER PRIMARY KEY,
+                        IDPARTAGE INTEGER PRIMARY KEY AUTOINCREMENT,
                         IDUSER INTEGER,
                         IDPOSTIT INTEGER,
                         FOREIGN KEY (IDUSER) REFERENCES USER(IDUSER),

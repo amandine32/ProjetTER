@@ -1,15 +1,17 @@
 <?php
-require_once 'C:/laragon/www/ProjetTER/src/modele/UserModel.php';
+require_once 'UserModel.php';
 
-class RegisterController {
-    private $userModel;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $pseudo = $_POST['pseudo'];
+    $dateDeNaissance = $_POST['dateDeNaissance'];
+    $email = $_POST['email'];
+    $motdepasse = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
 
-    public function __construct() {
-        $this->userModel = new UserModel(/* Paramètres de connexion à la base de données */);
-    }
-
-    public function register($userData) {
-        // Logique d'inscription
-    }
+    // Création d'une instance de UserModel
+    $userModel = new UserModel();
+    // Insertion de l'utilisateur dans la base de données
+    $userModel->createUser($pseudo, $nom, $prenom, $dateDeNaissance, $email, $motdepasse);
 }
 ?>
