@@ -25,5 +25,12 @@ class UserModel {
 
         return true;
     }
+    public function getUserByMail($mail) {
+        $stmt = $this->db->prepare("SELECT * FROM USER WHERE MAIL = :mail");
+        $stmt->bindParam(':mail', $mail);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>

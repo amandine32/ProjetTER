@@ -1,5 +1,5 @@
 <?php
-require_once 'UserModel.php';
+require_once 'C:/laragon/www/ProjetTER/src/modele/UserModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];
