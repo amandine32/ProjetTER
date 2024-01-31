@@ -11,12 +11,17 @@ class LoginController {
 
     public function login($mail, $mdp) {
         $user = $this->userModel->getUserByMail($mail);
-        if ($user && password_verify($mdp, $user['mdp'])) {
+
+
+        if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['message'] = "Connexion réussie.";
-            header(' Location : /ProjetTER/src/home.php'); 
+            header('Location: /ProjetTER/src/home.php');
+            exit();
+ 
         } else {
             $_SESSION['message'] = "Connexion échouée. Identifiants incorrects.";
-            header('Location : /ProjetTER/src/home.php'); 
+            header('Location: /ProjetTER/src/home.php'); 
+            exit();
         }
     }
 }
@@ -28,4 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $loginController = new LoginController();
     $loginController->login($mail, $mdp);
 }
+
+
 ?>
