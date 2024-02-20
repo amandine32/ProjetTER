@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+ 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-size: cover; 
+    background-image: url('fondd.png');
+ 
+}
+ 
+.logo img {
+    width: 250px;
+    height: 150px;
+}
+ 
+nav button {
+    background-color: #3a1338;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+ 
+nav button:hover {
+    background-color: #0056b3;
+}
+ 
+.container {
+    text-align: center;
+    padding: 20px;
+}
+ 
+.post-it-wrapper {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+    color: #3a1338;
+    font-size: 20px;
+    background-image: url('fondd.png'); 
+    height: 600px;
+    width: 550px;
+    border: 2px solid blue; 
+    border-radius: 75px; 
+}
+ 
+ 
+.post-it-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+ 
+.post-it {
+    background-color: #b67087;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+ 
+.post-it button {
+    margin-top: 5px;
+}
+ 
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+ 
+/* Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+ 
+button {
+    padding: 10px 20px;
+    background-color: #f5e1ef;
+    color: #0000ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+ 
+button:hover {
+    background-color: #0056b3;
+}
+ 
+ 
+footer {
+    background-color: #3a1338;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+ 
+.social-icons {
+    margin-bottom: 20px;
+}
+ 
+.social-icons a {
+    margin: 0 10px;
+}
+ 
+.social-icons img {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+ 
+footer p {
+    font-size: 14px;
+}

@@ -16,8 +16,8 @@ class LoginController {
 
         if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['message'] = "Connexion réussie.";
-            // $_SESSION['pseudo'] = $user['pseudo']; // Stockez le pseudo dans la session
-            header('Location: /pro2/ProjetTER/src/vue/postitVue.php');
+            // $_SESSION['pseudo'] = $user['pseudo']; // Stocke le pseudo dans la session
+            header('Location: /pro2/ProjetTER/src/accueilsite.php');
             exit();
         } else {
             $_SESSION['message'] = "Connexion échouée. Identifiants incorrects.";

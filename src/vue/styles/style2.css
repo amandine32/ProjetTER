@@ -40,9 +40,9 @@ label {
 }
 
 .formulaire {
-    width: 100%; /* Ajustez la largeur du formulaire selon vos préférences */
-    max-width: 800px; /* Limitez la largeur maximale si nécessaire */
-    margin: 0 auto; /* Centre le formulaire horizontalement */
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
 
 }
 
