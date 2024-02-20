@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:/wamp64/www/pro2/ProjetTER/src/modele/PostitModel.php';
+require_once '../modele/PostitModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    /*  // Récupération du pseudo depuis la session

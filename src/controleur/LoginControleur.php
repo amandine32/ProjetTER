@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-require_once 'C:/wamp64/www/pro2/ProjetTER/src/modele/UserModel.php';
+require_once '../modele/UserModel.php';
 
 
 class LoginController {

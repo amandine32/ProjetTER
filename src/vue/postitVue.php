@@ -17,7 +17,7 @@
     <div class="d1">
     <h1>New post-it:</h1>
         <div>
-            <form action="/pro2/ProjetTER/src/controleur/ajoutpostitControleur.php" method="post" class="formulaire">
+            <form action="../controleur/ajoutpostitControleur.php" method="post" class="formulaire">
                 <!-- Champ pour le titre -->
                 <label for="titre">Titre :</label><br>
                 <input type="text" id="titre" name="titre" maxlength="150" required>
