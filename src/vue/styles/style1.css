@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('fondd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+.container1 .left-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.container1 .left-column img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container1 .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    text-align: center;
+}
+
+.container1 .right-column .imagereseau{
+    /* max-width: 80%; 
+    height: auto;   */
+    width: 10px;
+    height:30px;
+}
+
+
+.container1 a.button-link {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #3a1338;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    min-width: 150px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.container1 a.button-link:hover {
+    background-color: #eebff1;
+}
+
+
+h1 {
+    font-size: 42px;
+}
+
+p {
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-style: bold;
+}
+
+
+/* Media Queries pour différentes tailles d'écrans */
+
+/* Pour les écrans de taille moyenne (par exemple, tablettes) */
+@media (max-width: 768px) {
+    .container1 {
+        flex-direction: column;
+    }
+}
+
+/* Pour les écrans de petite taille (par exemple, téléphones) */
+@media (max-width: 480px) {
+    .container1 .left-column,
+    .container1 .right-column {
+        max-width: 100%; /* Ajuste la largeur à 100% pour occuper tout l'espace disponible */
+    }
+}
+

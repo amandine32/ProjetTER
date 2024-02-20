@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'accueil</title>
-    <link rel="stylesheet" href="vue/styles/style.css">
-</head>
-<body>
-    <?php
+<?php
     $page = isset($_GET['page']) ? $_GET['page'] : '';
 
     switch($page) {
@@ -17,19 +9,54 @@
             include 'vue/registerVue.php';
             break;
         default:
-            echo '<div class="welcome-message">Bienvenue sur la page d\'accueil</div>';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vue/styles/style1.css">
+    <title>First page</title>
+</head>
+<body>
 
-            echo '<form action="index.php" method="get" style="display: inline-block;">';
-            echo '    <input type="hidden" name="page" value="login">';
-            echo '    <button type="submit" class="home-button">Connexion</button>';
-            echo '</form>';
-            
-            echo '<form action="index.php" method="get" style="display: inline-block;">';
-            echo '    <input type="hidden" name="page" value="register">';
-            echo '    <button type="submit" class="home-button">Inscription</button>';
-            echo '</form>';
-            break;
+<div class="container1">
+    <div class="left-column">
+        <img src="vue/images/logosite.png" alt="logo">
+    </div>
+
+    <div class="right-column">
+        <h1 id="autoType"></h1>
+        <a href="index.php?page=login" class="button-link">Connexion</a>
+        <p>Vous n'avez pas de compte ? Nous vous invitons à vous inscrire</p>
+        <a href="index.php?page=register" class="button-link">Inscription</a>
+    </div>
+</div>
+
+
+<!-- Autosaisie du texte de bienvenue -->
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+        autoType("Welcome to your creative space!", 'autoType');
+    });
+
+    function autoType(text, elementId) {
+        var element = document.getElementById(elementId);
+        var letters = text.split('');
+
+        letters.forEach(function (letter, index) {
+            setTimeout(function () {
+                element.innerHTML += letter;
+            }, index * 45);
+        });
     }
-    ?>
+</script>
+
+
+
 </body>
 </html>
+<?php
+            break;
+    }
+?>

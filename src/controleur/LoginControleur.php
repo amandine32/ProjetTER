@@ -1,6 +1,7 @@
 <?php
 session_start(); 
-require_once 'C:/laragon/www/ProjetTER/src/modele/UserModel.php';
+require_once 'C:/wamp64/www/pro2/ProjetTER/src/modele/UserModel.php';
+
 
 class LoginController {
     private $userModel;
@@ -15,12 +16,12 @@ class LoginController {
 
         if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['message'] = "Connexion réussie.";
-            header('Location: /ProjetTER/src/home.php');
+            // $_SESSION['pseudo'] = $user['pseudo']; // Stockez le pseudo dans la session
+            header('Location: /pro2/ProjetTER/src/vue/postitVue.php');
             exit();
- 
         } else {
             $_SESSION['message'] = "Connexion échouée. Identifiants incorrects.";
-            header('Location: /ProjetTER/src/home.php'); 
+            header('Location: /pro2/ProjetTER/src/home.php'); 
             exit();
         }
     }
