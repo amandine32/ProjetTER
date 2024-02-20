@@ -1,7 +1,7 @@
 <?php
 try {
     // Création ou ouverture de la base de données SQLite
-    $pdo = new PDO('sqlite:C:/laragon/www/ProjetTER/pro2/src/bdd/scrip.sqlite');
+    $pdo = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Création des tables si elles n'existent pas déjà

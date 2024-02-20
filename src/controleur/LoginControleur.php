@@ -17,11 +17,11 @@ class LoginController {
         if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['message'] = "Connexion réussie.";
             // $_SESSION['pseudo'] = $user['pseudo']; // Stocke le pseudo dans la session
-            header('Location: /pro2/ProjetTER/src/accueilsite.php');
+            header('Location: /ProjetTER/src/accueilsite.php');
             exit();
         } else {
             $_SESSION['message'] = "Connexion échouée. Identifiants incorrects.";
-            header('Location: /pro2/ProjetTER/src/home.php'); 
+            header('Location: /ProjetTER/src/home.php'); 
             exit();
         }
     }

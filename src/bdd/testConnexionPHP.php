@@ -1,7 +1,7 @@
 <?php
 try {
 
-    $pdo = new PDO('sqlite:C:/wamp64/www/pro2/ProjetTER/src/bdd/scrip.sqlite');
+    $pdo = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
     echo "Connexion réussie à la base de données SQLite.";
 
     

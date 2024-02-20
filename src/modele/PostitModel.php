@@ -3,7 +3,7 @@ class PostitModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:C:/wamp64/www/pro2/ProjetTER/src/bdd/scrip.sqlite');
+        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
     }
 
     public function createPostit($titre, $libelle, $pseudo, $datedecreation) {

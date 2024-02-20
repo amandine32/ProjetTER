@@ -54,11 +54,11 @@ if (!isset($_SESSION['pseudo'])) {
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function() {
             alert('Vous avez été déconnecté !');
-            window.location.href = "/pro2/ProjetTER/src/vue/loginVue.php";
+            window.location.href = "/ProjetTER/src/vue/loginVue.php";
         });
 
         document.getElementById('ajouterPostItBtn').addEventListener('click', function() {
-            window.location.href = '/pro2/ProjetTER/src/vue/postitVue.php';
+            window.location.href = '/ProjetTER/src/vue/postitVue.php';
         });
     </script>
 
