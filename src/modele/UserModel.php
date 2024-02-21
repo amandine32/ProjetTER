@@ -1,9 +1,12 @@
 <?php
+
+require_once '../config.php';
 class UserModel {
+    
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
+        $this->db = new PDO('sqlite:' . DB_PATH);
     }
 
     public function createUser($pseudo, $nom, $prenom, $dateDeNaissance, $mail, $mdp = null) {

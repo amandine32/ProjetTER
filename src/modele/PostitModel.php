@@ -1,9 +1,11 @@
 <?php
+require_once '../config.php';
+
 class PostitModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
+        $this->db = new PDO('sqlite:' . DB_PATH);
     }
 
     public function createPostit($titre, $libelle, $pseudo, $datedecreation) {

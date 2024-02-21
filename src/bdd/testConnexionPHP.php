@@ -1,7 +1,8 @@
 <?php
 try {
 
-    $pdo = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
+    require_once '../config.php';
+    $pdo =  new PDO('sqlite:' . DB_PATH);
     echo "Connexion réussie à la base de données SQLite.";
 
     
