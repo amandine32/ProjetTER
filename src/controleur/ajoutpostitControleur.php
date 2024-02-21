@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once '../modele/PostitModel.php';
+require_once '../vue/postitVue.php';
+
+// Création d'une instance de PostitModel
+$postitModel = new PostitModel();
+
+$users = $postitModel->getAllUsers();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    /*  // Récupération du pseudo depuis la session
@@ -11,9 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $libelle = $_POST['libelle'];
     $pseudo = $_POST['pseudo'];
     $datedecreation = $_POST['datedecreation'];
-
-    // Création d'une instance de PostitModel
-    $postitModel = new PostitModel();
 
     try {
         // Insertion du post-it dans la base de données

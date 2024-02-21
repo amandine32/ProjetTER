@@ -24,5 +24,12 @@ class PostitModel {
             return false;
         }
     }
+    public function getAllUsers() {
+        $sql = "SELECT IDUSER, PSEUDO FROM USER";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>
