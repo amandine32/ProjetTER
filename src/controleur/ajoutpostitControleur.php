@@ -9,18 +9,28 @@ $postitModel = new PostitModel();
 $users = $postitModel->getAllUsers();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   /*  // Récupération du pseudo depuis la session
-    $pseudo = isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : ''; */
-
     // Récupération des champs du formulaire
     $titre = $_POST['titre'];
     $libelle = $_POST['libelle'];
     $pseudo = $_POST['pseudo'];
     $datedecreation = $_POST['datedecreation'];
 
+    // Récupération des utilisateurs sélectionnés
+    $selectedUsers = isset($_POST['users']) ? $_POST['users'] : [];
+
     try {
         // Insertion du post-it dans la base de données
         $inserted = $postitModel->createPostit($titre, $libelle, $pseudo, $datedecreation);
+
+        // Récupération de l'ID du dernier post-it inséré
+        // Récupération de l'ID du dernier post-it inséré
+        $lastInsertedPostitId = $postitModel->getLastInsertId();
+
+
+        // Insertion des partages dans la base de données
+        foreach ($selectedUsers as $userId) {
+            $postitModel->createPartage($userId, $lastInsertedPostitId);
+        }
 
         if ($inserted) {
             // Redirection vers index.php en cas de succès
@@ -34,4 +44,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errorMessage = "Une erreur s'est produite : " . $e->getMessage();
     }
 }
+
 ?>

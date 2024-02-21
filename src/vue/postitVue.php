@@ -34,12 +34,13 @@
                 <input type="text" id="datedecreation" name="datedecreation" value="<?php echo $datedecreation; ?>" readonly>
                 <br>
                 <label for="users">Partager avec :</label><br>
-
+                
                 <select name="users[]" id="users" multiple>
                     <?php foreach ($users as $user) : ?>
                         <option value="<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></option>
                     <?php endforeach; ?>
                 </select>
+
 
 
                 <!-- Champ pour le libellé du post-it -->
