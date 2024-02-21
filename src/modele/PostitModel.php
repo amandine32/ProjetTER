@@ -24,5 +24,28 @@ class PostitModel {
             return false;
         }
     }
+    public function getAllUsers() {
+        $sql = "SELECT IDUSER, PSEUDO FROM USER";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createPartage($userId, $postitId) {
+        $sql = "INSERT INTO Partage (IDUSER, IDPOSTIT)
+                VALUES (:userId, :postitId)";
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':postitId', $postitId);
+        
+        return $stmt->execute();
+    }
+    public function getLastInsertId() {
+        return $this->db->lastInsertId();
+    }
+    
+    
+    
 }
 ?>
