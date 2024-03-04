@@ -1,67 +1,27 @@
 <?php
+session_start();
+
+
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header("Location: index.php?page=welcome");
+    exit();
+}
+
+
 $page = isset($_GET['page']) ? $_GET['page'] : '';
 
 switch ($page) {
     case 'login':
-        include 'controleur/LoginController.php';
+        include 'vue/login_vue.php'; // Inclus la vue de connexion
+        include 'controleur/LoginController.php'; // Inclus le contrôleur de connexion
         break;
     case 'register':
-        include 'controleur/RegisterController.php';
+        include 'vue/register_vue.php'; // Inclus la vue d'inscription
+        include 'controleur/RegisterController.php'; // Inclus le contrôleur d'inscription
         break;
-    case 'accueil':
     default:
-        include 'controleur/AccueilController.php';
+        include 'controleur/AccueilController.php'; // Inclus le contrôleur de la page d'accueil
         break;
+}
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vue/styles/style1.css">
-    <title>NoteHub App</title>
-</head>
-<body>
-
-<div class="container1">
-    <div class="left-column">
-        <img src="vue/images/logosite.png" alt="logo">
-    </div>
-
-    <div class="right-column">
-        <h1 id="autoType"></h1>
-        <a href="index.php?page=login" class="button-link">Connexion</a>
-        <p>Vous n'avez pas de compte ? Nous vous invitons à vous inscrire</p>
-        <a href="index.php?page=register" class="button-link">Inscription</a>
-    </div>
-</div>
-
-
-<!-- Autosaisie du texte de bienvenue -->
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-        autoType("Welcome to your creative space!", 'autoType');
-    });
-
-    function autoType(text, elementId) {
-        var element = document.getElementById(elementId);
-        var letters = text.split('');
-
-        letters.forEach(function (letter, index) {
-            setTimeout(function () {
-                element.innerHTML += letter;
-            }, index * 45);
-        });
-    }
-</script>
-
-
-
-</body>
-</html>
-<?php
-            break;
-    }
 ?>
