@@ -1,11 +1,11 @@
 <?php
-require_once '../config.php';
+
 
 class PostitModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:' . DB_PATH);
+        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
     }
 
     public function createPostit($titre, $libelle, $pseudo, $datedecreation) {
@@ -45,6 +45,23 @@ class PostitModel {
     }
     public function getLastInsertId() {
         return $this->db->lastInsertId();
+    }
+    
+    public function getAllPostits() {
+        $sql = "SELECT * FROM POSTIT";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getSharedPostits($userId) {
+        $sql = "SELECT p.* FROM POSTIT p 
+                INNER JOIN Partage pa ON p.IDPOSTIT = pa.IDPOSTIT
+                WHERE pa.IDUSER = :userId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':userId', $userId);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
     
     

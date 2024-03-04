@@ -1,15 +1,20 @@
 <?php
-    $page = isset($_GET['page']) ? $_GET['page'] : '';
+$page = isset($_GET['page']) ? $_GET['page'] : '';
 
-    switch($page) {
-        case 'login':
-            include 'vue/loginVue.php';
-            break;
-        case 'register':
-            include 'vue/registerVue.php';
-            break;
-        default:
+switch ($page) {
+    case 'login':
+        include 'controleur/LoginController.php';
+        break;
+    case 'register':
+        include 'controleur/RegisterController.php';
+        break;
+    case 'accueil':
+    default:
+        include 'controleur/AccueilController.php';
+        break;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

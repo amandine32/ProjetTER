@@ -1,19 +1,3 @@
-<?php
-// Démarrez la session
-session_start();
-
-
-/*  Gestion deconnexion (ne marche pas encore) -->
-// Vérifiez si l'utilisateur est connecté
-if (!isset($_SESSION['pseudo'])) {
-    // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
-    header('Location: /pro2/ProjetTER/src/vue/loginVue.php');
-    exit();
-} */
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,13 +24,30 @@ if (!isset($_SESSION['pseudo'])) {
         <div class="post-it-wrapper">
             <h2>Post-its possédés</h2>
             <div class="post-it-container" id="post-it-container-owned">
-                <!-- Les post-its possédés seront chargés dynamiquement ici -->
+            <div class="post-it-container" id="post-it-container-owned">
+   
+    <?php foreach ($allPostits as $postit): ?>
+        <div class="post-it">
+            <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
+            <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+
+        </div>
+    <?php endforeach; ?>
+</div>
             </div>
         </div>
         <div class="post-it-wrapper">
             <h2>Post-its partagés</h2>
             <div class="post-it-container" id="post-it-container-shared">
-                <!-- Les post-its partagés seront chargés dynamiquement ici -->
+            <div class="post-it-container" id="post-it-container-shared">
+    <?php foreach ($sharedPostits as $postit): ?>
+        <div class="post-it">
+            <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
+            <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+        </div>
+    <?php endforeach; ?>
+</div>
+
             </div>
         </div>
     </div>

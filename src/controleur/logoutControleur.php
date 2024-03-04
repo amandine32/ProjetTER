@@ -18,6 +18,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
  
 // Redirigez l'utilisateur vers la page de connexion
-header("Location: loginVue.php");
+header('Location: /ProjetTER/src/index.php?page=login'); 
 exit;
 ?>
