@@ -1,16 +1,30 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../modele/PostitModel.php';
+
+$postitModel = new PostitModel();
+$allPostits = $postitModel->getAllPostits() ?: [];
+$sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_SESSION['userId']) : [];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vue/styles/accueil.css">
+    <link rel="stylesheet" href="styles/accueil.css">
+
     <title>Post-it App</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="vue/images/logosite.png" alt="logo">
+                <img src="images/logosite.png" alt="logo">
             </div>
             <nav>
                 <button id="ajouterPostItBtn">Ajouter un post-it</button>
@@ -65,9 +79,9 @@
 
     <footer>
         <div class="social-icons">
-            <a href="#"><img src="vue/images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="vue/images/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="vue/images/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
         </div>
         <p>&copy; 2024 NoteHub App. Tous droits réservés.</p>
     </footer>

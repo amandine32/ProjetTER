@@ -1,7 +1,13 @@
 <?php
-session_start();
-require_once '../modele/PostitModel.php';
-require_once '../vue/postitVue.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+
+require_once __DIR__ . '/../modele/PostitModel.php';
+require_once __DIR__ . '/../vue/postitVue.php';
+
 
 // Création d'une instance de PostitModel
 $postitModel = new PostitModel();
@@ -22,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insertion du post-it dans la base de données
         $inserted = $postitModel->createPostit($titre, $libelle, $pseudo, $datedecreation);
 
-        // Récupération de l'ID du dernier post-it inséré
         // Récupération de l'ID du dernier post-it inséré
         $lastInsertedPostitId = $postitModel->getLastInsertId();
 

@@ -1,6 +1,11 @@
 <?php
-session_start();
-require_once '../modele/UserModel.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
+require_once __DIR__ . '/../modele/UserModel.php';
+//require_once("modele/UserModel.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];

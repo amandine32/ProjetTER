@@ -1,27 +1,28 @@
 <?php
-session_start();
 
-
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header("Location: index.php?page=welcome");
-    exit();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
+$page = isset($_GET['page']) ? $_GET['page'] : 'welcome'; 
 
-$page = isset($_GET['page']) ? $_GET['page'] : '';
-
-switch ($page) {
+switch($page) {
     case 'login':
-        include 'vue/login_vue.php'; // Inclus la vue de connexion
-        include 'controleur/LoginController.php'; // Inclus le contrôleur de connexion
+        include 'vue/loginVue.php';
         break;
     case 'register':
-        include 'vue/register_vue.php'; // Inclus la vue d'inscription
-        include 'controleur/RegisterController.php'; // Inclus le contrôleur d'inscription
+        include 'vue/registerVue.php';
         break;
+    case 'accueil': 
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+            include 'controleur/AccueilControleur.php';
+        } else {
+            include 'vue/welcomeVue.php'; 
+        }
+        break;
+    case 'welcome':
     default:
-        include 'controleur/AccueilController.php'; // Inclus le contrôleur de la page d'accueil
+        include 'vue/welcomeVue.php';
         break;
 }
-
 ?>

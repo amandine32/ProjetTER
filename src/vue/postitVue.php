@@ -10,7 +10,6 @@
 <?php include_once('../controleur/ajoutpostitControleur.php'); ?>
 
 
-   <!-- Erreur à afficher si l'enregistrement du postit échoue -->
     <?php if (isset($errorMessage)) : ?>
         <div style="color: red;"><?php echo $errorMessage; ?></div>
     <?php endif; ?>
@@ -19,34 +18,32 @@
     <h1>New post-it:</h1>
         <div>
         <form action="../controleur/ajoutpostitControleur.php" method="post" class="formulaire">
-    <!-- Champ pour le titre -->
+
     <label for="titre">Titre :</label><br>
     <input type="text" id="titre" name="titre" maxlength="150" required>
     <br>
 
-    <!-- Champ pour le pseudo -->
+
     <label for="pseudo">Pseudo:</label><br>
     <input type="text" id="pseudo" name="pseudo" class="pseudo" required><br>
 
-    <!-- Champ pour la date d'ajout -->
+
     <label for="datedecreation">Date d'ajout :</label><br>
     <?php $datedecreation = date('d-m-Y'); ?>
     <input type="text" id="datedecreation" name="datedecreation" value="<?php echo $datedecreation; ?>" readonly>
     <br>
 
-    <!-- Liste des utilisateurs avec cases à cocher -->
+
     <label for="users">Partager avec :</label><br>
     <?php foreach ($users as $user) : ?>
         <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
         <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
     <?php endforeach; ?>
 
-    <!-- Champ pour le libellé du post-it -->
     <label for="libelle">Libellé:</label><br>
     <input type="text" id="libelle" name="libelle" class="libelle" required>
     <br><br>
 
-    <!-- Bouton d'enregistrement -->
     <input type="submit" value="Enregistrer">
 </form>
 

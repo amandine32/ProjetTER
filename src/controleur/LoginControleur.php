@@ -1,6 +1,10 @@
 <?php
-session_start();
-require_once '../modele/UserModel.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../modele/UserModel.php';
+//require_once '../modele/UserModel.php';
+//require_once("modele/UserModel.php");
 
 class LoginController {
     private $userModel;
@@ -14,7 +18,7 @@ class LoginController {
 
         if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['userId'] = $user['IDUSER'];
-            $_SESSION['logged_in'] = true; // Ajoute cette ligne pour indiquer que l'utilisateur est connecté
+            $_SESSION['logged_in'] = true; 
             header('Location: /ProjetTER/src/vue/AccueilVue.php');
             exit();
         } else {

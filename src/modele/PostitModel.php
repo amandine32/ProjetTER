@@ -21,7 +21,6 @@ class PostitModel {
         if ($stmt->execute()) {
             return true;
         } else {
-            // Afficher le message d'erreur spécifique
             echo "Erreur lors de l'enregistrement du post-it : " . $stmt->errorInfo()[2];
             return false;
         }

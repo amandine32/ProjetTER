@@ -1,8 +1,8 @@
 <?php
-// Démarrez la session
-session_start();
- 
-// Détruisez toutes les variables de session
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $_SESSION = array();
  
 // Supprimez le cookie de session
