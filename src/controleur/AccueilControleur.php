@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header('Location: /chemin/vers/loginVue.php'); 
+    header('Location: /ProjetTER/src/vue/LoginVue.php'); 
     exit;
 }
 

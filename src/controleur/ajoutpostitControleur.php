@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($inserted) {
             // Redirection vers index.php en cas de succès
-            header("Location: /ProjetTER/src/index.php");
+            header("Location: /ProjetTER/src/vue/AccueilVue.php");
             exit();
         } else {
             // Reste sur la page d'ajout avec un message d'erreur
