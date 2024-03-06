@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once __DIR__ . '/../modele/PostitModel.php';
 
 $postitModel = new PostitModel();
-$allPostits = $postitModel->getAllPostits() ?: [];
+$allUserPostits = isset($_SESSION['userId']) ? $postitModel->getUserPostits($_SESSION['userId']) : [];
 $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_SESSION['userId']) : [];
 ?>
 
@@ -40,7 +40,7 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
             <div class="post-it-container" id="post-it-container-owned">
             <div class="post-it-container" id="post-it-container-owned">
    
-    <?php foreach ($allPostits as $postit): ?>
+    <?php foreach ($allUserPostits as $postit): ?>
         <div class="post-it">
             <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
             <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
