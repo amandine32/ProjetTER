@@ -29,7 +29,7 @@
             <div class="post-it-container" id="post-it-container-owned">
             <div class="post-it-container" id="post-it-container-owned">
    
-    <?php foreach ($allPostits as $postit): ?>
+    <?php foreach ($allPostits as $postit){ ?>
         <div class="post-it">
                  <a href="index.php?page=PostitDetail&id=<?php echo $postit['IDPOSTIT']; ?>">
                     <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
@@ -39,7 +39,7 @@
 
 
         </div>
-    <?php endforeach; ?>
+    <?php }; ?>
 </div>
             </div>
         </div>

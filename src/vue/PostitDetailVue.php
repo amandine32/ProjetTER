@@ -35,13 +35,13 @@
 
 
     <label for="users">Partager avec :</label><br>
-    <?php foreach ($users as $user) : ?>
+    <?php foreach ($sharedUsers as $user) : ?>
         <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
         <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
     <?php endforeach; ?>
 
     <label for="libelle">Libellé:</label><br>
-    <input type="text" id="libelle" name="libelle" class="libelle" required>
+    <input type="text" id="libelle" name="libelle" value="<?php echo $postitDetails["LIBELLE"]; ?>" readonly>
     <br><br>
 
     <input type="submit" value="Enregistrer">

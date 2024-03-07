@@ -72,6 +72,17 @@ class PostitModel {
     
     
     
+    public function getSharedUserById($postitid) {
+        $sql = "SELECT u.* FROM USER u 
+                INNER JOIN Partage pa ON u.IDUSER = pa.IDUSER
+                WHERE pa.IDPOSTIT = :idPostit";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':idPostit', $postitid);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    
     public function getSharedPostits($userId) {
         $sql = "SELECT p.* FROM POSTIT p 
                 INNER JOIN Partage pa ON p.IDPOSTIT = pa.IDPOSTIT

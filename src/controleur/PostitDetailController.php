@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
 
     $postitId = $_GET['id'];
     $postitDetails = $postitModel->getPostitsById($postitId);
-    $sharedUsers = $postitModel->getSharedUsers($postitId);
+    $sharedUsers = $postitModel->getSharedUserById($postitId);
 
     require_once __DIR__ . '/../vue/PostitDetailVue.php';
 } else {
