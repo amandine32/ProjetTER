@@ -23,6 +23,9 @@ switch($page) {
             include 'vue/welcomeVue.php'; 
         }
         break;
+    case 'supprimerPostit':
+        include 'controleur/DeletePostitController.php';
+        break;
     case 'welcome':
     default:
         include 'vue/welcomeVue.php';

@@ -94,6 +94,13 @@ class PostitModel {
 
     }
     
+    public function deletePostit($postitId) {
+        $sql = "DELETE FROM POSTIT WHERE IDPOSTIT = :postitId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':postitId', $postitId);
+        return $stmt->execute();
+    }
+    
     
     
 }
