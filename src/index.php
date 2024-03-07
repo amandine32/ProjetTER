@@ -16,6 +16,9 @@ switch($page) {
     case 'PostitDetail':
         include 'controleur/PostitDetailController.php';
         break;
+    case 'PostitSharedDetail': // Ajoutez ce cas pour gérer l'affichage des détails des post-its partagés
+        include 'controleur/PostitSharedDetailControleur.php';
+        break;
     case 'accueil': 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             include 'controleur/AccueilControleur.php';
@@ -24,7 +27,7 @@ switch($page) {
         }
         break;
     case 'supprimerPostit':
-        include 'controleur/DeletePostitController.php';
+        include 'controleur/DeletePostitControleur.php';
         break;
     case 'welcome':
     default:

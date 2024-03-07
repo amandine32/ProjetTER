@@ -44,20 +44,21 @@
             </div>
         </div>
         <div class="post-it-wrapper">
-            <h2>Post-its partagés</h2>
-            <div class="post-it-container" id="post-it-container-shared">
-            <div class="post-it-container" id="post-it-container-shared">
-    <?php foreach ($sharedPostits as $postit): ?>
-        <div class="post-it">
-            <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
-            <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
-            <h4 >Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
-
-        </div>
-    <?php endforeach; ?>
+    <h2>Post-its partagés</h2>
+    <div class="post-it-container" id="post-it-container-shared">
+        <?php foreach ($sharedPostits as $postit): ?>
+            <div class="post-it">
+                <a href="index.php?page=PostitSharedDetail&id=<?php echo $postit['IDPOSTIT']; ?>">
+                    <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                </a>
+                <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+                <h4>Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
+                <h4>Propriétaire: <?php echo htmlspecialchars($postit['PSEUDO']); ?></h4> 
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 
-            </div>
         </div>
     </div>
 
