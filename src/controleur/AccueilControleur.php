@@ -20,7 +20,7 @@ $sharedPostits = [];
 if (isset($_SESSION['userId'])) {
     $userId = $_SESSION['userId'];
     $sharedPostits = $postitModel->getSharedPostits($userId);
-    var_dump($sharedPostits);
+
 } else {
    ;
 }
