@@ -44,6 +44,8 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
         <div class="post-it">
             <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
             <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+            <h4>Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
+
 
         </div>
     <?php endforeach; ?>
@@ -58,6 +60,8 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
         <div class="post-it">
             <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
             <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+            <h4>Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
+
         </div>
     <?php endforeach; ?>
 </div>
