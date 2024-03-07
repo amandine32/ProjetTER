@@ -11,10 +11,10 @@ require_once __DIR__ . '/../modele/PostitModel.php';
 require_once __DIR__ . '/../modele/UserModel.php';
 
 $postitModel = new PostitModel();
-$allPostits = $postitModel->getAllPostits() ?: [];
+$allPostits = $postitModel->getUserPostits($_SESSION['userId']) ?: [];
 $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_SESSION['userId']) : [];
 
-$allPostits = $postitModel->getAllPostits();
+
 
 $sharedPostits = []; 
 if (isset($_SESSION['userId'])) {

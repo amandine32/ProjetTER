@@ -49,6 +49,17 @@ class PostitModel {
     public function getLastInsertId() {
         return $this->db->lastInsertId();
     }
+
+    
+    public function getPostitsById($postitId) {
+        $sql = "SELECT p.* FROM POSTIT p
+                WHERE p.IDPOSTIT = :postitId ";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':postitId', $postitId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
     
     public function getUserPostits($userId) {
         $sql = "SELECT p.* FROM POSTIT p
