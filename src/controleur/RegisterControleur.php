@@ -3,9 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-
 require_once __DIR__ . '/../modele/UserModel.php';
-//require_once("modele/UserModel.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nom = $_POST['nom'];
@@ -15,9 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $motdepasse = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
 
-    // Création d'une instance de UserModel
+
     $userModel = new UserModel();
-    // Insertion de l'utilisateur dans la base de données
-    $userModel->createUser($pseudo, $nom, $prenom, $dateDeNaissance, $email, $motdepasse);
+
+    $inserted = $userModel->createUser($pseudo, $nom, $prenom, $dateDeNaissance, $email, $motdepasse);
+
+
+    if ($inserted) {
+        $_SESSION['account_created'] = true;
+        header('Location: /ProjetTER/src/index.php?page=login');
+        exit();
+    } else {
+        $_SESSION['error_message'] = "Erreur lors de la création du compte.";
+
+    }
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] != 'POST' || isset($_SESSION['error_message'])) {
+    require_once __DIR__ . '/../vue/registerVue.php';
 }
 ?>

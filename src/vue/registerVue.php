@@ -30,5 +30,14 @@
         <button type="submit">Inscription</button>
     </form>
 </div>
+
+<?php if (isset($_SESSION['account_created'])): ?>
+<script>
+    alert('Votre compte a été créé avec succès!');
+</script>
+<?php 
+    unset($_SESSION['account_created']); 
+endif; ?>
+
 </body>
 </html>

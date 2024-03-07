@@ -8,10 +8,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'welcome';
 
 switch($page) {
     case 'login':
-        include 'vue/loginVue.php';
+        include 'controleur/LoginControleur.php';
         break;
     case 'register':
-        include 'vue/registerVue.php';
+        include 'controleur/registerControleur.php';
         break;
     case 'PostitDetail':
         include 'controleur/PostitDetailController.php';

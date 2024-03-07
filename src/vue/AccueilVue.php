@@ -46,7 +46,7 @@
         <div class="post-it-wrapper">
     <h2>Post-its partagés</h2>
     <div class="post-it-container" id="post-it-container-shared">
-        <?php foreach ($sharedPostits as $postit): ?>
+        <?php foreach ($sharedPostits as $postit):?>
             <div class="post-it">
                 <a href="index.php?page=PostitSharedDetail&id=<?php echo $postit['IDPOSTIT']; ?>">
                     <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>

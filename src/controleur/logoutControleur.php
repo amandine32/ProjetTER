@@ -14,10 +14,10 @@ if (ini_get("session.use_cookies")) {
         $params["secure"], $params["httponly"]
     );
 }
- 
+require_once __DIR__ . '/../vue/welcomeVue.php';
 // Détruisez la session
 session_destroy();
-
-header('Location: /ProjetTER/src/index.php?page=welcome'); 
-exit;
+//require_once __DIR__ . '/../vue/welcomeVue.php';
+//header('Location: index.php?page=index'); 
+//exit;
 ?>
