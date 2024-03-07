@@ -13,6 +13,9 @@ switch($page) {
     case 'register':
         include 'vue/registerVue.php';
         break;
+    case 'PostitDetail':
+        include 'controleur/PostitDetailController.php';
+        break;
     case 'accueil': 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             include 'controleur/AccueilControleur.php';

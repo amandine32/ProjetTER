@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $postitModel->createPartage($userId, $lastInsertedPostitId);
                 }
 
-                header("Location: /ProjetTER/src/vue/AccueilVue.php");
+                header('Location: /ProjetTER/src/index.php?page=accueil');
                 exit();
             } else {
 

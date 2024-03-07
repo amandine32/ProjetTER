@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box; /* Appliquez le modèle de boîte à tous les éléments */
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -10,12 +14,12 @@ body {
 .d1 {
     text-align: center;
     width: 500px;
-    height: 620px;
     padding: 20px;
     border: 1px solid #3a1338;
     border-radius: 75px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: url('fondd.png') center center/cover no-repeat; 
+    background: url('fondd.png') center center/cover no-repeat;
+    overflow: auto; /* Ajoutez un défilement automatique si le contenu dépasse */
 }
 
 .d1 h1 {
@@ -30,33 +34,34 @@ label {
     text-align: left;
     color: #0f0d0d;
     font-size: 20px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
+/* Cette classe .form semble ne pas être utilisée dans le HTML fourni */
 .form {
-    max-width: 600px; 
+    max-width: 600px;
     margin: 0 auto;
-    background: url('fondd.png') 
+    background: url('fondd.png');
 }
 
 .formulaire {
     width: 100%; 
-    max-width: 800px; 
-    margin: 0 auto; 
-
 }
 
-input {
-    width: 100%;
+input[type="text"],
+input[type="submit"],
+textarea {
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
-    box-sizing: border-box;
     border: 1px solid #722850;
     border-radius: 8px;
 }
 
-input.libelle {
-    height: 120px;
+
+textarea.libelle {
+    min-height: 120px; 
+    resize: vertical; 
 }
 
 input[type="submit"] {
@@ -65,10 +70,11 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s;
     border: none;
-    width: 200px;
+    padding: 10px 20px; 
     border-radius: 15px;
     font-weight: bold;
     font-size: 20px;
+    width: auto; 
 }
 
 input[type="submit"]:hover {
@@ -79,4 +85,3 @@ input[type="submit"]:hover {
     color: #d34838;
     margin-bottom: 10px;
 }
-

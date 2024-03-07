@@ -1,14 +1,3 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-require_once __DIR__ . '/../modele/PostitModel.php';
-
-$postitModel = new PostitModel();
-$allUserPostits = isset($_SESSION['userId']) ? $postitModel->getUserPostits($_SESSION['userId']) : [];
-$sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_SESSION['userId']) : [];
-?>
 
 
 <!DOCTYPE html>
@@ -16,7 +5,7 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/accueil.css">
+    <link rel="stylesheet" href="vue/styles/accueil.css">
 
     <title>Post-it App</title>
 </head>
@@ -24,7 +13,7 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="images/logosite.png" alt="logo">
+                <img src="vue/images/logosite.png" alt="logo">
             </div>
             <nav>
                 <button id="ajouterPostItBtn">Ajouter un post-it</button>
@@ -40,13 +29,17 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
             <div class="post-it-container" id="post-it-container-owned">
             <div class="post-it-container" id="post-it-container-owned">
    
-    <?php foreach ($allUserPostits as $postit): ?>
+    <?php foreach ($allPostits as $postit){ ?>
         <div class="post-it">
-            <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                 <a href="index.php?page=PostitDetail&id=<?php echo $postit['IDPOSTIT']; ?>">
+                    <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                 </a>
             <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+            <h4>Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
+
 
         </div>
-    <?php endforeach; ?>
+    <?php }; ?>
 </div>
             </div>
         </div>
@@ -58,6 +51,8 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
         <div class="post-it">
             <h3><?php echo htmlspecialchars($postit['TITRE'], ENT_QUOTES, 'UTF-8'); ?></h3>
             <p><?php echo nl2br(htmlspecialchars($postit['LIBELLE'], ENT_QUOTES, 'UTF-8')); ?></p>
+            <h4 >Créé le: <?php echo htmlspecialchars($postit['DATEDECREATION'], ENT_QUOTES, 'UTF-8'); ?></h4>
+
         </div>
     <?php endforeach; ?>
 </div>
@@ -79,9 +74,9 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
 
     <footer>
         <div class="social-icons">
-            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="vue/images/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="vue/images/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="vue/images/instagram.png" alt="Instagram"></a>
         </div>
         <p>&copy; 2024 NoteHub App. Tous droits réservés.</p>
     </footer>

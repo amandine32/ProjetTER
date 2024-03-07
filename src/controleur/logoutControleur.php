@@ -3,6 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+
 $_SESSION = array();
  
 // Supprimez le cookie de session
@@ -16,8 +17,7 @@ if (ini_get("session.use_cookies")) {
  
 // Détruisez la session
 session_destroy();
- 
-// Redirigez l'utilisateur vers la page de connexion
-header('Location: /ProjetTER/src/index.php?page=login'); 
+
+header('Location: /ProjetTER/src/index.php?page=welcome'); 
 exit;
 ?>

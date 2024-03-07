@@ -49,6 +49,17 @@ class PostitModel {
     public function getLastInsertId() {
         return $this->db->lastInsertId();
     }
+
+    
+    public function getPostitsById($postitId) {
+        $sql = "SELECT p.* FROM POSTIT p
+                WHERE p.IDPOSTIT = :postitId ";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':postitId', $postitId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
     
     public function getUserPostits($userId) {
         $sql = "SELECT p.* FROM POSTIT p
@@ -60,6 +71,17 @@ class PostitModel {
     }
     
     
+    
+    public function getSharedUserById($postitid) {
+        $sql = "SELECT u.* FROM USER u 
+                INNER JOIN Partage pa ON u.IDUSER = pa.IDUSER
+                WHERE pa.IDPOSTIT = :idPostit";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':idPostit', $postitid);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
     
     public function getSharedPostits($userId) {
         $sql = "SELECT p.* FROM POSTIT p 

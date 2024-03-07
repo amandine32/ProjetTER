@@ -19,7 +19,7 @@ class LoginController {
         if ($user && password_verify($mdp, $user['MDP'])) {
             $_SESSION['userId'] = $user['IDUSER'];
             $_SESSION['logged_in'] = true; 
-            header('Location: /ProjetTER/src/vue/AccueilVue.php');
+            header('Location: /ProjetTER/src/index.php?page=accueil');
             exit();
         } else {
             $_SESSION['message'] = "Connexion échouée. Identifiants incorrects.";
