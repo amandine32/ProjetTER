@@ -3,15 +3,18 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 require_once __DIR__ . '/../modele/UserModel.php';
+require_once __DIR__ . '/../vue/LoginVue.php';
 //require_once '../modele/UserModel.php';
 //require_once("modele/UserModel.php");
 
 class LoginController {
     private $userModel;
+    
 
     public function __construct() {
         $this->userModel = new UserModel();
     }
+    
 
     public function login($mail, $mdp) {
         $user = $this->userModel->getUserByMail($mail);
@@ -28,6 +31,7 @@ class LoginController {
         }
     }
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail = $_POST['mail'];
