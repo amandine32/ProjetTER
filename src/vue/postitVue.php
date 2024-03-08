@@ -40,12 +40,13 @@
 
 
                 <label for="users">Partager avec :</label><br>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($users as $user): ?><?php if ($user['IDUSER'] != $_SESSION['userId']){?>
                     <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]"
                         value="<?php echo $user['IDUSER']; ?>">
                     <label for="user_<?php echo $user['IDUSER']; ?>">
                         <?php echo $user['PSEUDO']; ?>
                     </label><br>
+                    <?php } ?>
                 <?php endforeach; ?>
 
                 <label for="libelle">Libellé:</label><br>

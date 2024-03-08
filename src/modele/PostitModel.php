@@ -82,6 +82,16 @@ class PostitModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function getUserNotSharedUser($postitid) {
+        $sql = "SELECT * FROM USER u
+                WHERE u.IDUSER not in(select pa.IDUSER from partage pa where pa.IDPOSTIT = :idPostit )";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':idPostit', $postitid);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
     
     public function getSharedPostits($userId) {
         $sql = "SELECT p.* FROM POSTIT p 
@@ -101,7 +111,20 @@ class PostitModel {
         return $stmt->execute();
     }
     
-    
+    public function updatePostit($postId, $newTitle, $newLibelle) {
+        $sql = "UPDATE POSTIT SET TITRE = :newTitle, LIBELLE = :newLibelle WHERE IDPOSTIT = :postId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':newTitle', $newTitle);
+        $stmt->bindParam(':newLibelle', $newLibelle);
+        $stmt->bindParam(':postId', $postId);
+        return $stmt->execute();
+    }
+    public function deleteSharedUser($postitId) {
+        $sql = "DELETE FROM PARTAGE WHERE IDPOSTIT = :postitId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':postitId', $postitId);
+        return $stmt->execute();
+    }
     
 }
 ?>
