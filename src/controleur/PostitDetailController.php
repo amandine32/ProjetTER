@@ -35,7 +35,7 @@ $notSharedUser = $postitModel->getUserNotSharedUser($_GET['id']);
 
 
 
-// Affichage des détails du post-it pour modification
+
 if (isset($_GET['id'])) {
     $postitId = $_GET['id'];
     $postitDetails = $postitModel->getPostitsById($postitId);

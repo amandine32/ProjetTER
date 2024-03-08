@@ -3,9 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Assurez-vous que l'utilisateur est connecté
+
 if (!isset($_SESSION['userId'])) {
-    header('Location: /ProjetTER/src/index.php?page=welcome'); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header('Location: /ProjetTER/src/index.php?page=welcome'); 
     exit();
 }
 

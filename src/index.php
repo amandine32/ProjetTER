@@ -16,7 +16,7 @@ switch($page) {
     case 'PostitDetail':
         include 'controleur/PostitDetailController.php';
         break;
-    case 'PostitSharedDetail': // Ajoutez ce cas pour gérer l'affichage des détails des post-its partagés
+    case 'PostitSharedDetail': 
         include 'controleur/PostitSharedDetailControleur.php';
         break;
     case 'accueil': 
