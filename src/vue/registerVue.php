@@ -53,7 +53,7 @@
 
 <?php if (isset($_SESSION['account_created'])): ?>
 <script>
-    alert('Votre compte a été créé avec succès!');
+    alert('');
 </script>
 <?php 
     unset($_SESSION['account_created']); 
