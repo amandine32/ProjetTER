@@ -182,9 +182,18 @@ footer p {
     max-height: 150px; 
     overflow: hidden; 
     border-radius: 15px; 
-    font-size: 17px;
+    font-size: 15px;
 }
 
+.post-it {
+    width: 100%; 
+    margin: 10px 0;
+    height: auto;
+    max-height: 150px; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    font-size: 15px;
+}
 
 
 @media (min-width: 1000px) {

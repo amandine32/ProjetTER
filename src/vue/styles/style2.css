@@ -8,7 +8,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #FCE8F8;;
+    background-size: 100% 100%;
+    background-color: #FCE8F8;
+    background-image: url(../images/fonds.jpg) ;
+    background-repeat: no-repeat; 
+    background-position: center;
 }
 
 .d1 {
@@ -84,4 +88,58 @@ input[type="submit"]:hover {
 .error-message {
     color: #d34838;
     margin-bottom: 10px;
+}
+
+/* Style pour le conteneur principal */
+.detail-container {
+    height: 500px;
+    width: 550px;
+    margin: 0 auto; /* Centre le contenu horizontalement */
+    padding: 20px; /* Ajoute un espacement intérieur */
+    background-color: #f9f9f9; /* Couleur de fond */
+    border-radius: 30px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    font-size: 23px;
+}
+
+/* Style pour le titre */
+.detail-container h1 {
+    margin-top: 0; /* Supprime la marge supérieure par défaut */
+    color: #3a1338; /* Couleur du texte */
+}
+
+/* Style pour les éléments de la liste */
+.detail-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style pour chaque élément de la liste */
+.detail-container li {
+    margin-bottom: 5px;
+    color: #3a1338;
+}
+
+/* Style pour les éléments forts */
+.detail-container strong {
+    color: #3a1338; 
+}
+
+
+
+
+/* Style pour le conteneur div */
+.checkbox-container {
+    display: flex; /* Utilisation de Flexbox pour le positionnement */
+    flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
+}
+
+/* Style pour chaque paire case à cocher - étiquette */
+.checkbox-container input[type="checkbox"] + label {
+    margin-right: 10px; /* Espacement horizontal entre les paires */
+}
+
+/* Style pour les cases à cocher */
+.checkbox-container input[type="checkbox"] {
+    margin-bottom: 5px; /* Espacement vertical entre les paires */
 }

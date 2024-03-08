@@ -40,19 +40,21 @@
     <br>
 
     <label for="users">Partager avec :</label><br>
-    <?php foreach ($sharedUsers as $user): ?>
-    <input type="checkbox" checked id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
-    <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
-    <?php endforeach; ?>
-    <?php foreach ($notSharedUser as $user): ?><?php if ($user['IDUSER'] != $_SESSION['userId']){?>
-    <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
-    <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
-    <?php } ?>
-    <?php endforeach; ?>
+    
+        <div class="checkbox-container">
+        <?php foreach ($sharedUsers as $user): ?>
+        <input type="checkbox" checked id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
+        <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
+        <?php endforeach; ?>
+        <?php foreach ($notSharedUser as $user): ?><?php if ($user['IDUSER'] != $_SESSION['userId']){?>
+        <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]" value="<?php echo $user['IDUSER']; ?>">
+        <label for="user_<?php echo $user['IDUSER']; ?>"><?php echo $user['PSEUDO']; ?></label><br>
+        <?php } ?>
+        <?php endforeach; ?>
+        </div>
 
 
-
-    <input type="submit" value="Enregistrer">
+        <br><input type="submit" value="Enregistrer">
 </form>
 
 <form action="controleur/DeletePostitControleur.php" method="post" class="formulaire">
