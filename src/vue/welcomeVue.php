@@ -25,7 +25,7 @@
 
 <script>
    document.addEventListener('DOMContentLoaded', function () {
-        autoType("Welcome to your creative space!", 'autoType');
+        autoType("Bienvenue sur votre espace de partage de pos-it !", 'autoType');
     });
 
     function autoType(text, elementId) {
@@ -40,7 +40,12 @@
     }
 </script>
 
-
+<footer>
+        <div class="container"> 
+            <p>&copy; 2024 NoteHub App. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
 
 </body>
 </html>

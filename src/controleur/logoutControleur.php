@@ -17,7 +17,5 @@ if (ini_get("session.use_cookies")) {
 require_once __DIR__ . '/../vue/welcomeVue.php';
 
 session_destroy();
-//require_once __DIR__ . '/../vue/welcomeVue.php';
-//header('Location: index.php?page=index'); 
-//exit;
+
 ?>

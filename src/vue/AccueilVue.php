@@ -10,17 +10,13 @@
     <title>Post-it App</title>
 </head>
 <body>
+
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="vue/images/logosite.png" alt="logo">
-            </div>
-            <nav>
-                <button id="ajouterPostItBtn">Ajouter un post-it</button>
-                <button id="logoutBtn">Déconnexion</button>
-            </nav>
-        </div>
+        <?php
+        require_once 'vue/Styles/header.php'
+        ?>
     </header>
+    
 
     <div class="container">
         <h1>Bienvenue au gestionnaire de posts-it</h1>
@@ -64,8 +60,8 @@
 
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function() {
-            alert('Vous avez été déconnecté !');
-            window.location.href = "/ProjetTER/src/vue/loginVue.php";
+            alert('Vous avez été déconnecté(e) !');
+            window.location.href = "/ProjetTER/src/index.php?page=login'";
         });
 
         document.getElementById('ajouterPostItBtn').addEventListener('click', function() {
@@ -73,13 +69,10 @@
         });
     </script>
 
-    <footer>
-        <div class="social-icons">
-            <a href="#"><img src="vue/images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="vue/images/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="vue/images/instagram.png" alt="Instagram"></a>
-        </div>
-        <p>&copy; 2024 NoteHub App. Tous droits réservés.</p>
+<footer>
+        <?php
+            require_once 'vue/Styles/footer.php'
+        ?>
     </footer>
 </body>
 </html>

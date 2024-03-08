@@ -90,3 +90,33 @@ p {
     }
 }
 
+
+
+footer {
+    background-color: #3a1338;
+    padding: 7px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container p {
+    position: relative; 
+    color: #fff;
+}
+
+.container p::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 1px; 
+    height: 30%;
+}
