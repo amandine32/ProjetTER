@@ -18,7 +18,7 @@
     <?php endif; ?>
 
     <div class="d1">
-        <h1>New post-it:</h1>
+        <h1> Details de votre post-it :</h1>
         <div>
         <form action="index.php?page=PostitDetail" method="post" class="formulaire">
     <input type="hidden" name="postitId" value="<?php echo $postitDetails['IDPOSTIT']; ?>">
@@ -28,7 +28,9 @@
     <br>
 
     <label for="libelle">Libellé:</label><br>
-    <input type="text" id="libelle" name="libelle" value="<?php echo $postitDetails["LIBELLE"]; ?>">
+
+    <textarea id="libelle" name="libelle"><?php echo $postitDetails["LIBELLE"]; ?></textarea>
+
     <br><br>
 
     <label for="pseudo">Pseudo:</label><br>
