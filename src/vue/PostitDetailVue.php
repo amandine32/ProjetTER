@@ -27,6 +27,9 @@
     <input value="<?php echo $postitDetails["TITRE"] ?>" type="text" id="titre" name="titre" maxlength="150" required>
     <br>
 
+    <label for="libelle">Libellé:</label><br>
+    <input type="text" id="libelle" name="libelle" value="<?php echo $postitDetails["LIBELLE"]; ?>">
+    <br><br>
 
     <label for="pseudo">Pseudo:</label><br>
     <input value="<?php echo $postitDetails["PSEUDO"] ?>" type="text" id="pseudo" name="pseudo" maxlength="150" required>
@@ -47,9 +50,7 @@
     <?php } ?>
     <?php endforeach; ?>
 
-    <label for="libelle">Libellé:</label><br>
-    <input type="text" id="libelle" name="libelle" value="<?php echo $postitDetails["LIBELLE"]; ?>">
-    <br><br>
+
 
     <input type="submit" value="Enregistrer">
 </form>

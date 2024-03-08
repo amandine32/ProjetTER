@@ -40,6 +40,7 @@
             </div>
         </div>
         <div class="post-it-wrapper">
+            
     <h2>Post-its partagés</h2>
     <div class="post-it-container" id="post-it-container-shared">
         <?php foreach ($sharedPostits as $postit):?>
