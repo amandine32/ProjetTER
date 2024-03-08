@@ -54,6 +54,11 @@
     <input type="submit" value="Enregistrer">
 </form>
 
+<form action="controleur/DeletePostitControleur.php" method="post" class="formulaire">
+                <input type="hidden" name="postitId" value="<?php echo $postitDetails['IDPOSTIT']; ?>">
+                <input type="submit" value="Supprimer">
+            </form>
+
 
 
         </div>
