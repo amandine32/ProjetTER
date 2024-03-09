@@ -19,7 +19,7 @@
     <?php endif; ?>
 
     <div class="d1">
-        <h1>New post-it:</h1>
+        <h1>Ajout de post-it:</h1>
         <div>
             <form action="../controleur/ajoutpostitControleur.php" method="post" class="formulaire">
 

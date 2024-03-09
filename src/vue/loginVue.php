@@ -21,7 +21,7 @@
                          <?php
                             if (!empty($_SESSION['message'])) {
                             echo '<div class="notification">' . $_SESSION['message'] . '</div>';
-                             unset($_SESSION['message']); // Suppression de la notification après l'avoir affichée une fois
+                             unset($_SESSION['message']);
                                 }
                         ?>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="vue\styles\style.css">
+    <link rel="stylesheet" href="vue/styles/style.css">
 </head>
 <body>
 <div class="register-container">
