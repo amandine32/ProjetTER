@@ -33,10 +33,6 @@
 
     <br><br>
 
-    <label for="pseudo">Pseudo:</label><br>
-    <input value="<?php echo $postitDetails["PSEUDO"] ?>" type="text" id="pseudo" name="pseudo" maxlength="150" required>
-    <br>
-
     <label for="datedecreation">Date d'ajout :</label><br>
     <input type="text" id="datedecreation" name="datedecreation" value="<?php echo date('d-m-Y'); ?>" readonly>
     <br>
@@ -59,7 +55,7 @@
         <br><input type="submit" value="Enregistrer">
 </form>
 
-<form action="controleur/DeletePostitControleur.php" method="post" class="formulaire">
+<form action="index.php?page=supprimerPostit" method="post" class="formulaire">
                 <input type="hidden" name="postitId" value="<?php echo $postitDetails['IDPOSTIT']; ?>">
                 <input type="submit" value="Supprimer">
             </form>

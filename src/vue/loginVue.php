@@ -12,7 +12,7 @@
                      <img src="vue/images/user.png" alt="logo" width="100" height="100">
              </div>
      
-                <form action="controleur/loginControleur.php" method="post">
+                <form action="index.php?page=login" method="post">
 
                         <input type="text" name="mail" placeholder="Adresse e-mail" required>
                         <input type="password" name="mdp" placeholder="Mot de passe" required>

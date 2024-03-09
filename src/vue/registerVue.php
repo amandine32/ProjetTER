@@ -8,7 +8,7 @@
 <body>
 <div class="register-container">
     <h2>Inscription</h2>
- <form id="registrationForm" action="controleur/RegisterControleur.php" method="post">
+ <form id="registrationForm" action="index.php?page=register" method="post">
 
             <div class="left-column" style="text-align: center;">
                      <img src="vue/images/user.png" alt="logo" width="100" height="100">

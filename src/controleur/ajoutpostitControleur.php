@@ -4,28 +4,29 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once __DIR__ . '/../modele/PostitModel.php';
-require_once __DIR__ . '/../vue/postitVue.php';
+require_once __DIR__ . '/../modele/UserModel.php';
+
 
 // Création d'une instance de PostitModel
 $postitModel = new PostitModel();
+$userModel = new UserModel();
+
+$userId = $_SESSION['userId']; 
 
 $users = $postitModel->getAllUsers();
+$userConnected = $userModel->getUserById($userId);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_SESSION['userId'])) {
-        $userId = $_SESSION['userId']; 
-
-
         $titre = $_POST['titre'];
         $libelle = $_POST['libelle'];
-        $pseudo = $_POST['pseudo']; 
         $datedecreation = $_POST['datedecreation'];
 
         $selectedUsers = isset($_POST['users']) ? $_POST['users'] : [];
 
         try {
    
-            $inserted = $postitModel->createPostit($titre, $libelle, $pseudo, $datedecreation, $userId);
+            $inserted = $postitModel->createPostit($titre, $libelle, $datedecreation, $userId);
 
             if ($inserted) {
                 $lastInsertedPostitId = $postitModel->getLastInsertId();
@@ -50,5 +51,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-include_once('../vue/postitVue.php');
+require_once __DIR__ . '/../vue/postitVue.php';
 ?>
