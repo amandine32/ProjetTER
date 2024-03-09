@@ -1,21 +1,21 @@
 <?php
-
+require_once 'config.php';
 
 class PostitModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
-    }
 
-    public function createPostit($titre, $libelle, $pseudo, $datedecreation, $iduser) {
-        $sql = "INSERT INTO POSTIT (TITRE, LIBELLE, PSEUDO, DATEDECREATION, IDUSER)
-                VALUES (:titre, :libelle, :pseudo, :datedecreation, :iduser)";
+        $this->db = new PDO('sqlite:' . DB_PATH);
+
+    }
+    public function createPostit($titre, $libelle, $datedecreation, $iduser) {
+        $sql = "INSERT INTO POSTIT (TITRE, LIBELLE, DATEDECREATION, IDUSER)
+                VALUES (:titre, :libelle, :datedecreation, :iduser)";
     
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':libelle', $libelle);
-        $stmt->bindParam(':pseudo', $pseudo);
         $stmt->bindParam(':datedecreation', $datedecreation);
         $stmt->bindParam(':iduser', $iduser);
     
@@ -52,7 +52,8 @@ class PostitModel {
 
     
     public function getPostitsById($postitId) {
-        $sql = "SELECT p.* FROM POSTIT p
+        $sql = "SELECT p.* , u.PSEUDO FROM POSTIT p
+                INNER JOIN user u ON u.IDUSER = p.IDUSER
                 WHERE p.IDPOSTIT = :postitId ";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':postitId', $postitId, PDO::PARAM_INT);
@@ -94,8 +95,9 @@ class PostitModel {
     }
     
     public function getSharedPostits($userId) {
-        $sql = "SELECT p.* FROM POSTIT p 
+        $sql = "SELECT p.*, u.pseudo FROM POSTIT p 
                 INNER JOIN Partage pa ON p.IDPOSTIT = pa.IDPOSTIT
+                INNER JOIN USER u ON u.IDUSER = p.IDUSER
                 WHERE pa.IDUSER = :userId";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':userId', $userId);

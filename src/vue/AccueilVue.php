@@ -68,7 +68,7 @@
         });
 
         document.getElementById('ajouterPostItBtn').addEventListener('click', function() {
-            window.location.href = '/ProjetTER/src/vue/postitVue.php';
+            window.location.href = '/ProjetTER/src/index.php?page=AjoutPostit';
         });
     </script>
 

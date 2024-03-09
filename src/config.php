@@ -1,3 +1,3 @@
 <?php
-define('DB_PATH', '../bdd/scrip.sqlite');
+define('DB_PATH', 'bdd/scrip.sqlite');
 ?>
