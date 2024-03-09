@@ -22,6 +22,9 @@ switch($page) {
     case 'AjoutPostit': 
         include 'controleur/ajoutpostitControleur.php';
         break;
+    case 'APropos': 
+        include 'controleur/AProposControleur.php';
+        break;
     case 'accueil': 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             include 'controleur/AccueilControleur.php';
@@ -35,9 +38,6 @@ switch($page) {
     case 'welcome':
     default:
         include 'controleur/WelcomeControleur.php';
-        break;
-    case 'apropos':
-        include 'vue/apropos.php';
         break;
         
 }
