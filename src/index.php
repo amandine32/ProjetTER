@@ -33,5 +33,9 @@ switch($page) {
     default:
         include 'vue/welcomeVue.php';
         break;
+    case 'apropos':
+        include 'vue/apropos.php';
+        break;
+        
 }
 ?>

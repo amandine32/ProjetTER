@@ -8,6 +8,7 @@
                 <ul>
                     <li><a href="#" id= "ajouterPostItBtn" >Ajout postit</a></li>
                     <li><a href="#">Verrouillage</a></li>
+                    <li><a href="index.php?page=apropos">A propos</a></li>
                     <li><a href="#" id="logoutBtn">Déconnexion</a></li>
                 </ul>
 

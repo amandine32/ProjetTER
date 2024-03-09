@@ -64,7 +64,7 @@
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function() {
             alert('Vous avez été déconnecté(e) !');
-            window.location.href = "/ProjetTER/src/index.php?page=login'";
+            window.location.href = '/ProjetTER/src/index.php?page=login';
         });
 
         document.getElementById('ajouterPostItBtn').addEventListener('click', function() {
