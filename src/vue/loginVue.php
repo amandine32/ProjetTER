@@ -29,7 +29,7 @@
                         <button type="submit">Se connecter</button>
                         <a href="index.php?page=register" class="text-center">Je n'ai pas de compte ?</a>
                     </div>
-                    <div align="right"><a href="#">Mot de passe oublié ... </a> </div>
+                    <div align="right"><a href="index.php?page=resetPassword">Mot de passe oublié ... </a> </div>
                 </form>
 
             </div>
