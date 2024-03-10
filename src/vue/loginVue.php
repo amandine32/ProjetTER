@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="vue/styles/style.css">
 </head>
 <body>
+
+    <div>
+    <div align="center">
+    <a href="/ProjetTER/src/index.php?page=welcome"><b>Notehub</b></a>
+  </div>
+        
     <div class="login-container">
             <h2>Connexion</h2>
             <div  style="text-align: center;">
