@@ -19,11 +19,23 @@ switch($page) {
     case 'PostitSharedDetail': 
         include 'controleur/PostitSharedDetailControleur.php';
         break;
+    case 'AjoutPostit': 
+        include 'controleur/ajoutpostitControleur.php';
+        break;
+    case 'APropos': 
+        include 'controleur/AProposControleur.php';
+        break;
+    case 'resetPassword': 
+        include 'controleur/PasswordResetControleur.php';
+        break;
+    case 'handleResetPassword':
+        require_once 'controleur/resetPasswordHandlerControleur.php';
+        break;
     case 'accueil': 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             include 'controleur/AccueilControleur.php';
         } else {
-            include 'vue/welcomeVue.php'; 
+            include 'controleur/WelcomeControleur.php'; 
         }
         break;
     case 'supprimerPostit':
@@ -31,10 +43,7 @@ switch($page) {
         break;
     case 'welcome':
     default:
-        include 'vue/welcomeVue.php';
-        break;
-    case 'apropos':
-        include 'vue/apropos.php';
+        include 'controleur/WelcomeControleur.php';
         break;
         
 }

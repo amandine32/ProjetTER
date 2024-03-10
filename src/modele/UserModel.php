@@ -1,16 +1,18 @@
 <?php
-
+require_once 'config.php';
 class UserModel {
     
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('sqlite:C:/laragon/www/ProjetTER/src/bdd/scrip.sqlite');
+
+        $this->db = new PDO('sqlite:' . DB_PATH);
+
     }
 
-    public function createUser($pseudo, $nom, $prenom, $dateDeNaissance, $mail, $mdp = null) {
-        $sql = "INSERT INTO USER (PSEUDO, NOM, PRENOM, DATEDENAISSANCE, MAIL, MDP)
-                VALUES (:pseudo, :nom, :prenom, :dateDeNaissance, :mail, :mdp)";
+    public function createUser($pseudo, $nom, $prenom, $dateDeNaissance, $mail, $mdp, $questionSec, $reponseSec) {
+        $sql = "INSERT INTO USER (PSEUDO, NOM, PRENOM, DATEDENAISSANCE, MAIL, MDP, QUESTIONSEC, REPONSESEC)
+                VALUES (:pseudo, :nom, :prenom, :dateDeNaissance, :mail, :mdp, :questionSec, :reponseSec)";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':pseudo', $pseudo);
@@ -19,6 +21,8 @@ class UserModel {
         $stmt->bindParam(':dateDeNaissance', $dateDeNaissance);
         $stmt->bindParam(':mail', $mail);
         $stmt->bindParam(':mdp', $mdp); 
+        $stmt->bindParam(':questionSec', $questionSec);
+        $stmt->bindParam(':reponseSec', $reponseSec);
 
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
@@ -32,6 +36,29 @@ class UserModel {
         $stmt->bindParam(':mail', $mail);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getUserById($idUser) {
+        $stmt = $this->db->prepare("SELECT * FROM USER WHERE IDUSER = :idUser");
+        $stmt->bindParam(':idUser', $idUser);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public function verifySecretQuestionAnswer($mail, $reponseSec) {
+        $sql = "SELECT * FROM USER WHERE MAIL = :mail AND REPONSESEC = :reponseSec";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':mail', $mail);
+        $stmt->bindParam(':reponseSec', $reponseSec);
+        $stmt->execute();
+    
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function updateUserPassword($mail, $newPassword) {
+        $sql = "UPDATE USER SET MDP = :newPassword WHERE MAIL = :mail";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':newPassword', $newPassword);
+        $stmt->bindParam(':mail', $mail);
+        return $stmt->execute();
     }
     
 }

@@ -13,7 +13,7 @@
 
     <header>
         <?php
-        require_once 'vue/Styles/header.php'
+        require_once 'HeaderVue.php'
         ?>
     </header>
     
@@ -68,13 +68,13 @@
         });
 
         document.getElementById('ajouterPostItBtn').addEventListener('click', function() {
-            window.location.href = '/ProjetTER/src/vue/postitVue.php';
+            window.location.href = '/ProjetTER/src/index.php?page=AjoutPostit';
         });
     </script>
 
 <footer>
         <?php
-            require_once 'vue/Styles/footer.php'
+            require_once 'FooterVue.php'
         ?>
     </footer>
 </body>

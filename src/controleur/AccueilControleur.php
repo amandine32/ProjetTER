@@ -16,14 +16,6 @@ $sharedPostits = isset($_SESSION['userId']) ? $postitModel->getSharedPostits($_S
 
 
 
-$sharedPostits = []; 
-if (isset($_SESSION['userId'])) {
-    $userId = $_SESSION['userId'];
-    $sharedPostits = $postitModel->getSharedPostits($userId);
-
-} else {
-   ;
-}
 
 //include 'vue/AccueilVue.php';
 require_once __DIR__ . '/../vue/AccueilVue.php';

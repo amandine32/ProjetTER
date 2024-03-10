@@ -12,7 +12,7 @@
                      <img src="vue/images/user.png" alt="logo" width="100" height="100">
              </div>
      
-                <form action="controleur/loginControleur.php" method="post">
+                <form action="index.php?page=login" method="post">
 
                         <input type="text" name="mail" placeholder="Adresse e-mail" required>
                         <input type="password" name="mdp" placeholder="Mot de passe" required>
@@ -29,7 +29,7 @@
                         <button type="submit">Se connecter</button>
                         <a href="index.php?page=register" class="text-center">Je n'ai pas de compte ?</a>
                     </div>
-                    <div align="right"><a href="#">Mot de passe oublié ... </a> </div>
+                    <div align="right"><a href="index.php?page=resetPassword">Mot de passe oublié ... </a> </div>
                 </form>
 
             </div>

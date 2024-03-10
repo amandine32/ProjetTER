@@ -12,11 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dateDeNaissance = $_POST['dateDeNaissance'];
     $email = $_POST['email'];
     $motdepasse = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
+    $questionSec = $_POST['questionSec'];
+    $reponseSec = $_POST['reponseSec']; 
 
 
     $userModel = new UserModel();
 
-    $inserted = $userModel->createUser($pseudo, $nom, $prenom, $dateDeNaissance, $email, $motdepasse);
+    $inserted = $userModel->createUser($pseudo, $nom, $prenom, $dateDeNaissance, $email, $motdepasse, $questionSec, $reponseSec );
 
 
     if ($inserted) {
