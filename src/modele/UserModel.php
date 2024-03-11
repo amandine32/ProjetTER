@@ -60,6 +60,20 @@ class UserModel {
         $stmt->bindParam(':mail', $mail);
         return $stmt->execute();
     }
+    public function getUserByPseudo($pseudo) {
+        $stmt = $this->db->prepare("SELECT * FROM USER WHERE PSEUDO = :pseudo");
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     
+    
+    public function getPseudoById($idUser) {
+        $stmt = $this->db->prepare("SELECT PSEUDO FROM USER WHERE IDUSER = :idUser");
+        $stmt->bindParam(':idUser', $idUser);
+        $stmt->execute();
+        $pseudo = $stmt->fetchColumn();
+        return $pseudo;
+    }
 }
 ?>

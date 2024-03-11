@@ -31,6 +31,9 @@ switch($page) {
     case 'handleResetPassword':
         require_once 'controleur/resetPasswordHandlerControleur.php';
         break;
+    case 'verrouillage':
+        require_once 'controleur/LockControleur.php';
+         break;
     case 'accueil': 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             include 'controleur/AccueilControleur.php';
