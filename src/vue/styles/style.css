@@ -23,7 +23,7 @@ body {
 /* Utilisez le même CSS que pour le formulaire de connexion */
 .register-container {
     background-color: #FCE8F8;
-    padding: 60px;
+    padding: 50px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 250px; 
@@ -99,4 +99,12 @@ button:hover {
 
 .notification {
     color: red;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
 }

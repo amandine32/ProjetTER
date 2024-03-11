@@ -62,16 +62,12 @@
                 </select><br>
 
                 <br><label for="reponseSec">Réponse à la question secrète :</label><br>
-                <input type="text" id="reponseSec" name="reponseSec" placeholder="Votre réponse"><br>
+                <input type="text" id="reponseSec" name="reponseSec" placeholder="Votre réponse" style="width: 250px;"><br>
 
-                <div align="center">
-                    <button type="submit">Inscription</button>
-                    <div> <br>
-                        <a href="index.php?page=login" class="text-center">J'ai déjà un compte ?</a>
-
-                    </div>
-
-                </div>
+                <div class="centered-content">
+                    <button type="submit">S'inscrire</button>
+                    <a href="index.php?page=login" class="text-center">J'ai déjà un compte</a>
+                </div>   
             </div>
         </form>
     </div>
