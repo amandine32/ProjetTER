@@ -14,7 +14,7 @@
     </div>
 
     <div class="right-column">
-        <h1 id="autoType"></h1>
+        <h1 id="autoType">'</h1>
         <a href="index.php?page=login" class="button-link">Connexion</a>
         <p>Vous n'avez pas de compte ? Nous vous invitons à vous inscrire</p>
         <a href="index.php?page=register" class="button-link">Inscription</a>

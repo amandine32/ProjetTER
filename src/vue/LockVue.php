@@ -11,7 +11,7 @@
 
 <div>
   <div align="center">
-    <a href=""><b>Notehub</b></a>
+    <a href="index.php?page=accueil"><b>Notehub</b></a>
   </div>
 
   <section>

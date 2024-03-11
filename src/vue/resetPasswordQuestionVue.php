@@ -18,8 +18,8 @@
         <select id="questionSec" name="questionSec" required> <br>
             <option value="option1">Quel est le prénom de votre meilleur ami ?</option>
             <option value="option1">Quelle est votre ville de naissance?</option>
-       
-        <input type="text" name="reponseSec" placeholder="Réponse à votre question secrète" required>
+
+         <input type="text" name="reponseSec" placeholder="Réponse à votre question secrète" required>
         <button type="submit">Vérifier</button>
     </form>
 </body>
