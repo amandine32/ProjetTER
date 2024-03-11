@@ -7,6 +7,9 @@
 </head>
 <body>
     <div class="reset-password-container">
+    <div align="center">
+      <img src="vue/images/verrouiller.png" alt="User Image" width="100" height="100">
+    </div>
         <h2>Entrez un nouveau mot de passe</h2>
         <form action="index.php?page=handleResetPassword" method="post">
             <input type="hidden" name="mail" value="<?php echo $_GET['mail']; ?>">

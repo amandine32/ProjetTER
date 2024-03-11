@@ -68,3 +68,8 @@ body {
 .notification {
     color: red;
 }
+
+
+.center-align {
+  text-align: center;
+}

@@ -9,7 +9,7 @@
 </head>
 
 <body>
- 
+
 
 
     <?php if (isset($errorMessage)): ?>
@@ -21,7 +21,7 @@
     <div class="d1">
         <h1>Ajout de post-it:</h1>
         <div>
-        
+
             <form action="index.php?page=AjoutPostit" method="post" class="formulaire">
 
                 <label for="titre">Titre :</label><br>
@@ -39,19 +39,18 @@
                 <textarea id="libelle" name="libelle" class="libelle" required></textarea>
                 <br><br>
 
-                    <label for="users">Partager avec :</label><br>
+                <label for="users">Partager avec :</label><br>
                 <div class="checkbox-container">
-                    <?php foreach ($users as $user): ?><?php if ($user['IDUSER'] != $_SESSION['userId']){?>
-                        <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]"
-                            value="<?php echo $user['IDUSER']; ?>">
-                        <label for="user_<?php echo $user['IDUSER']; ?>">
-                            <?php echo $user['PSEUDO']; ?>
-                        </label><br>
+                    <?php foreach ($users as $user): ?>
+                        <?php if ($user['IDUSER'] != $_SESSION['userId']) { ?>
+                            <input type="checkbox" id="user_<?php echo $user['IDUSER']; ?>" name="users[]"
+                                value="<?php echo $user['IDUSER']; ?>">
+                            <label for="user_<?php echo $user['IDUSER']; ?>">
+                                <?php echo $user['PSEUDO']; ?>
+                            </label><br>
                         <?php } ?>
                     <?php endforeach; ?>
                 </div>
-
-
                 <br><input type="submit" value="Enregistrer">
             </form>
 

@@ -6,7 +6,7 @@
     <title>Inscription</title>
     <link rel="stylesheet" href="vue/styles/style.css">
 
-    <script src="vue/validation.js"></script>
+    <script src="vue/styles/validation.js"></script>
 </head>
 
 <body>
