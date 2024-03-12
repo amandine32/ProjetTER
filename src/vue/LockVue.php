@@ -12,14 +12,14 @@
 <body>
 
   <div>
-    <div class="center-align">
+    <div align="center">
       <a href="index.php?page=accueil"><b>Notehub</b></a>
     </div>
 
     <div>
       <div>
         <br><br>
-        <div class="center-align">
+        <div align="center">
           <div class="lockscreen-image">
             <img src="vue/images/user.png" alt="User Image" width="100" height="100">
           </div>

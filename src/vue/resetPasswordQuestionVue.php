@@ -10,13 +10,13 @@
 <body>
     <div>
         <br><br>
-        <div class="center-align">
+        <div align = "center">
 
             <div class="lockscreen-image">
                 <img src="vue/images/verrouiller.png" alt="User Image" width="100" height="100">
             </div>
 
-            <h2>Reinitialisation de mot de passe</h2>
+            <h2>Reinitialisation de mot de passe </h2>
             <form action="index.php?page=resetPassword" method="post">
                 <input type="email" name="mail" placeholder="Votre email" required>
                 <select id="questionSec" name="questionSec" required>
